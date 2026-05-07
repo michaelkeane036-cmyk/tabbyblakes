@@ -43,15 +43,27 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 body {
     margin: 0;
+    width: 100%;
+    max-width: 100%;
     min-height: 100vh;
     color: var(--bone-soft);
     font-family: var(--f-body);
     background: var(--ink-950);
     overflow-x: hidden;
+}
+
+@supports (overflow-x: clip) {
+    html,
+    body {
+        overflow-x: clip;
+    }
 }
 
 body::before,
@@ -130,6 +142,7 @@ textarea {
     justify-content: space-between;
     gap: 34px;
     width: min(calc(100% - 28px), 1280px);
+    max-width: 100%;
     margin: 10px auto 0;
     padding: 16px 0;
     border-top: 1px solid rgba(231, 217, 202, 0.12);
@@ -366,8 +379,10 @@ textarea {
 
 .page-shell {
     width: min(calc(100% - 28px), var(--shell-w));
+    max-width: 100%;
     margin: 18px auto 0;
     padding-bottom: 42px;
+    overflow-x: hidden;
 }
 
 .hero-panel,
@@ -393,7 +408,7 @@ textarea {
     background: transparent;
     backdrop-filter: none;
     box-shadow: none;
-    overflow: visible;
+    overflow: hidden;
 }
 
 .hero-panel::before {
@@ -1420,6 +1435,7 @@ textarea {
     justify-content: center;
     overflow: hidden;
     background: #f4f1ec;
+    cursor: pointer;
 }
 
 .merch-image img {
@@ -1661,6 +1677,7 @@ textarea {
     position: fixed;
     left: 14px;
     right: 14px;
+    max-width: calc(100% - 28px);
     bottom: 14px;
     z-index: 320;
     display: none;
@@ -1848,6 +1865,7 @@ textarea {
         min-height: calc(100svh - 160px);
         padding: 26px;
         border-radius: 28px;
+        align-items: end;
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.86) 0%, rgba(5, 3, 4, 0.64) 44%, rgba(5, 3, 4, 0.24) 74%, rgba(5, 3, 4, 0.08) 100%),
             linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(124, 15, 21, 0.12) 48%, rgba(0, 0, 0, 0.22)),
@@ -1856,6 +1874,13 @@ textarea {
 
     .hero-copy {
         max-width: 100%;
+        padding-top: 86px;
+        padding-bottom: 6px;
+    }
+
+    .fade-in-left,
+    .fade-in-right {
+        transform: translateY(42px) scale(0.98);
     }
 
     .section-panel {
@@ -1966,10 +1991,16 @@ textarea {
         grid-template-columns: minmax(0, 0.82fr) minmax(42px, 0.18fr);
         min-height: calc(100svh - 150px);
         padding: 24px 20px;
+        align-items: end;
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.88) 0%, rgba(5, 3, 4, 0.66) 50%, rgba(5, 3, 4, 0.28) 78%, rgba(5, 3, 4, 0.1) 100%),
             linear-gradient(180deg, rgba(0, 0, 0, 0.06), rgba(124, 15, 21, 0.12) 48%, rgba(0, 0, 0, 0.22)),
             url("../IMG_3175.PNG") 68% 22% / cover no-repeat;
+    }
+
+    .hero-copy {
+        padding-top: 104px;
+        padding-bottom: 4px;
     }
 
     .show-poster {
