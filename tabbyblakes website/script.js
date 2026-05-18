@@ -19,8 +19,12 @@
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.getElementById("lightbox-close");
     const lightboxTriggers = document.querySelectorAll("[data-lightbox-src]");
+    let activeLightboxTrigger = null;
+    let previousBodyOverflow = "";
 
-    if (!prefersReducedMotion) {
+    if (!("IntersectionObserver" in window)) {
+        revealEls.forEach((el) => el.classList.add("visible"));
+    } else if (!prefersReducedMotion) {
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach((entry) => {
                 if (!entry.isIntersecting) return;
@@ -34,19 +38,26 @@
         revealEls.forEach((el) => el.classList.add("visible"));
     }
 
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const id = entry.target.getAttribute("id");
-            navLinks.forEach((link) => {
-                link.classList.toggle("active", link.dataset.section === id);
+    if ("IntersectionObserver" in window) {
+        const sectionObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                const id = entry.target.dataset.navSection || entry.target.getAttribute("id");
+                navLinks.forEach((link) => {
+                    link.classList.toggle("active", link.dataset.section === id);
+                });
             });
-        });
-    }, { threshold: 0.42 });
+        }, { threshold: 0.42 });
 
-    sections.forEach((section) => sectionObserver.observe(section));
+        sections.forEach((section) => sectionObserver.observe(section));
+    }
 
     function flashFormSuccess(targetForm, buttonSelector, labelSelector, idleText, successText) {
+        if (!targetForm.checkValidity()) {
+            targetForm.reportValidity();
+            return;
+        }
+
         const button = targetForm.querySelector(buttonSelector);
         const label = targetForm.querySelector(labelSelector);
 
@@ -96,6 +107,8 @@
         const caption = trigger.dataset.lightboxCaption || "";
         const alt = trigger.querySelector("img")?.alt || title;
 
+        activeLightboxTrigger = trigger;
+        previousBodyOverflow = document.body.style.overflow;
         lightboxMedia.src = src;
         lightboxMedia.alt = alt;
         lightboxTitle.textContent = title;
@@ -103,6 +116,7 @@
         lightbox.classList.add("open");
         lightbox.setAttribute("aria-hidden", "false");
         document.body.style.overflow = "hidden";
+        lightboxClose?.focus();
     }
 
     function closeLightbox() {
@@ -112,7 +126,9 @@
         lightbox.setAttribute("aria-hidden", "true");
         lightboxMedia.src = "";
         lightboxMedia.alt = "";
-        document.body.style.overflow = "";
+        document.body.style.overflow = previousBodyOverflow;
+        activeLightboxTrigger?.focus();
+        activeLightboxTrigger = null;
     }
 
     lightboxTriggers.forEach((trigger) => {
