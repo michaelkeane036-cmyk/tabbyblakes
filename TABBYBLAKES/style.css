@@ -2190,9 +2190,9 @@ textarea {
 .hero-panel {
     border-color: rgba(42, 23, 16, 0.18);
     background:
-        radial-gradient(circle at 82% 28%, rgba(255, 244, 230, 0.18), transparent 28%),
-        linear-gradient(90deg, rgba(234, 216, 192, 0.86) 0%, rgba(234, 216, 192, 0.64) 34%, rgba(234, 216, 192, 0.18) 62%, rgba(234, 216, 192, 0.02) 100%),
-        linear-gradient(180deg, rgba(255, 244, 230, 0.14), rgba(127, 47, 30, 0.08)),
+        radial-gradient(circle at 82% 28%, rgba(255, 244, 230, 0.08), transparent 28%),
+        linear-gradient(90deg, rgba(234, 216, 192, 0.88) 0%, rgba(234, 216, 192, 0.66) 34%, rgba(234, 216, 192, 0.16) 62%, rgba(42, 23, 16, 0.08) 100%),
+        linear-gradient(180deg, rgba(42, 23, 16, 0.12), rgba(42, 23, 16, 0.24)),
         var(--hero-image) center center / cover no-repeat;
     box-shadow: 0 30px 74px rgba(63, 37, 22, 0.26);
 }
@@ -2206,8 +2206,8 @@ textarea {
 
 .hero-panel::after {
     background:
-        linear-gradient(90deg, rgba(42, 23, 16, 0.04), transparent 48%, rgba(42, 23, 16, 0.05)),
-        linear-gradient(180deg, transparent 64%, rgba(42, 23, 16, 0.08));
+        linear-gradient(90deg, rgba(42, 23, 16, 0.04), transparent 42%, rgba(42, 23, 16, 0.18)),
+        linear-gradient(180deg, rgba(42, 23, 16, 0.05), transparent 46%, rgba(42, 23, 16, 0.18));
 }
 
 .hero-panel .eyebrow {
