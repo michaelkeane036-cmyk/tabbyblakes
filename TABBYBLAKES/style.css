@@ -20,6 +20,7 @@
     --ash-hover: rgba(159, 63, 36, 0.08);
     --ash-border: rgba(42, 23, 16, 0.24);
     --shadow: 0 24px 60px rgba(63, 37, 22, 0.24);
+    --hero-image: url("BlakesPerform3.jpeg");
 
     --f-display: "Anton", Impact, sans-serif;
     --f-body: "Archivo", Arial, sans-serif;
@@ -384,7 +385,7 @@ textarea {
     background:
         linear-gradient(90deg, rgba(3, 2, 3, 0.84) 0%, rgba(5, 3, 4, 0.62) 34%, rgba(5, 3, 4, 0.22) 60%, rgba(5, 3, 4, 0.04) 100%),
         linear-gradient(180deg, rgba(255, 244, 230, 0.08), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.12)),
-        url("MainHeroImage.PNG") right 56% bottom -18px / auto 96% no-repeat;
+        var(--hero-image) center center / cover no-repeat;
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow);
 }
@@ -1823,7 +1824,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.74) 0%, rgba(5, 3, 4, 0.5) 37%, rgba(5, 3, 4, 0.14) 64%, rgba(5, 3, 4, 0.02) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.08), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("MainHeroImage.PNG") right 46% bottom -14px / auto 92% no-repeat;
+            var(--hero-image) center center / cover no-repeat;
     }
 
     .section-panel::after {
@@ -1887,7 +1888,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.74) 0%, rgba(5, 3, 4, 0.5) 44%, rgba(5, 3, 4, 0.15) 74%, rgba(5, 3, 4, 0.03) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.1), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("MainHeroImage.PNG") right 30% bottom -8px / auto 82% no-repeat;
+            var(--hero-image) 58% center / cover no-repeat;
     }
 
     .hero-copy {
@@ -2028,7 +2029,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.76) 0%, rgba(5, 3, 4, 0.52) 50%, rgba(5, 3, 4, 0.16) 78%, rgba(5, 3, 4, 0.04) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.11), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("MainHeroImage.PNG") right 18% bottom -4px / auto 76% no-repeat;
+            var(--hero-image) 60% center / cover no-repeat;
     }
 
     .hero-copy {
@@ -2189,24 +2190,24 @@ textarea {
 .hero-panel {
     border-color: rgba(42, 23, 16, 0.18);
     background:
-        radial-gradient(circle at 82% 28%, rgba(255, 244, 230, 0.48), transparent 28%),
-        linear-gradient(90deg, rgba(234, 216, 192, 0.98) 0%, rgba(234, 216, 192, 0.88) 35%, rgba(234, 216, 192, 0.46) 62%, rgba(234, 216, 192, 0.1) 100%),
-        linear-gradient(180deg, rgba(255, 244, 230, 0.32), rgba(127, 47, 30, 0.12)),
-        url("MainHeroImage.PNG") right 56% bottom -18px / auto 96% no-repeat;
+        radial-gradient(circle at 82% 28%, rgba(255, 244, 230, 0.18), transparent 28%),
+        linear-gradient(90deg, rgba(234, 216, 192, 0.86) 0%, rgba(234, 216, 192, 0.64) 34%, rgba(234, 216, 192, 0.18) 62%, rgba(234, 216, 192, 0.02) 100%),
+        linear-gradient(180deg, rgba(255, 244, 230, 0.14), rgba(127, 47, 30, 0.08)),
+        var(--hero-image) center center / cover no-repeat;
     box-shadow: 0 30px 74px rgba(63, 37, 22, 0.26);
 }
 
 .hero-panel::before {
     background:
-        radial-gradient(circle at 12% 16%, rgba(255, 244, 230, 0.38), transparent 24%),
-        radial-gradient(circle at 70% 44%, rgba(159, 63, 36, 0.12), transparent 28%);
+        radial-gradient(circle at 12% 16%, rgba(255, 244, 230, 0.2), transparent 24%),
+        radial-gradient(circle at 70% 44%, rgba(159, 63, 36, 0.08), transparent 28%);
     mix-blend-mode: normal;
 }
 
 .hero-panel::after {
     background:
-        linear-gradient(90deg, rgba(42, 23, 16, 0.06), transparent 48%, rgba(42, 23, 16, 0.1)),
-        linear-gradient(180deg, transparent 64%, rgba(42, 23, 16, 0.14));
+        linear-gradient(90deg, rgba(42, 23, 16, 0.04), transparent 48%, rgba(42, 23, 16, 0.05)),
+        linear-gradient(180deg, transparent 64%, rgba(42, 23, 16, 0.08));
 }
 
 .hero-panel .eyebrow {
