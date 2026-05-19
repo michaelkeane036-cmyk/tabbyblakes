@@ -384,7 +384,7 @@ textarea {
     background:
         linear-gradient(90deg, rgba(3, 2, 3, 0.84) 0%, rgba(5, 3, 4, 0.62) 34%, rgba(5, 3, 4, 0.22) 60%, rgba(5, 3, 4, 0.04) 100%),
         linear-gradient(180deg, rgba(255, 244, 230, 0.08), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.12)),
-        url("IMG_3175.PNG") 62% 22% / cover no-repeat;
+        url("MainHeroImage.PNG") right 56% bottom -18px / auto 96% no-repeat;
     backdrop-filter: blur(18px);
     box-shadow: var(--shadow);
 }
@@ -1823,7 +1823,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.74) 0%, rgba(5, 3, 4, 0.5) 37%, rgba(5, 3, 4, 0.14) 64%, rgba(5, 3, 4, 0.02) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.08), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("IMG_3175.PNG") 64% 22% / cover no-repeat;
+            url("MainHeroImage.PNG") right 46% bottom -14px / auto 92% no-repeat;
     }
 
     .section-panel::after {
@@ -1887,7 +1887,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.74) 0%, rgba(5, 3, 4, 0.5) 44%, rgba(5, 3, 4, 0.15) 74%, rgba(5, 3, 4, 0.03) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.1), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("IMG_3175.PNG") 66% 22% / cover no-repeat;
+            url("MainHeroImage.PNG") right 30% bottom -8px / auto 82% no-repeat;
     }
 
     .hero-copy {
@@ -2028,7 +2028,7 @@ textarea {
         background:
             linear-gradient(90deg, rgba(3, 2, 3, 0.76) 0%, rgba(5, 3, 4, 0.52) 50%, rgba(5, 3, 4, 0.16) 78%, rgba(5, 3, 4, 0.04) 100%),
             linear-gradient(180deg, rgba(255, 244, 232, 0.11), rgba(159, 63, 36, 0.08) 48%, rgba(42, 23, 16, 0.1)),
-            url("IMG_3175.PNG") 68% 22% / cover no-repeat;
+            url("MainHeroImage.PNG") right 18% bottom -4px / auto 76% no-repeat;
     }
 
     .hero-copy {
@@ -2189,9 +2189,10 @@ textarea {
 .hero-panel {
     border-color: rgba(42, 23, 16, 0.18);
     background:
-        linear-gradient(90deg, rgba(234, 216, 192, 0.98) 0%, rgba(234, 216, 192, 0.86) 34%, rgba(234, 216, 192, 0.32) 64%, rgba(234, 216, 192, 0.1) 100%),
-        linear-gradient(180deg, rgba(255, 244, 230, 0.3), rgba(127, 47, 30, 0.11)),
-        url("IMG_3175.PNG") 62% 22% / cover no-repeat;
+        radial-gradient(circle at 82% 28%, rgba(255, 244, 230, 0.48), transparent 28%),
+        linear-gradient(90deg, rgba(234, 216, 192, 0.98) 0%, rgba(234, 216, 192, 0.88) 35%, rgba(234, 216, 192, 0.46) 62%, rgba(234, 216, 192, 0.1) 100%),
+        linear-gradient(180deg, rgba(255, 244, 230, 0.32), rgba(127, 47, 30, 0.12)),
+        url("MainHeroImage.PNG") right 56% bottom -18px / auto 96% no-repeat;
     box-shadow: 0 30px 74px rgba(63, 37, 22, 0.26);
 }
 
@@ -2204,8 +2205,8 @@ textarea {
 
 .hero-panel::after {
     background:
-        linear-gradient(90deg, rgba(42, 23, 16, 0.08), transparent 46%, rgba(42, 23, 16, 0.16)),
-        linear-gradient(180deg, transparent 68%, rgba(42, 23, 16, 0.12));
+        linear-gradient(90deg, rgba(42, 23, 16, 0.06), transparent 48%, rgba(42, 23, 16, 0.1)),
+        linear-gradient(180deg, transparent 64%, rgba(42, 23, 16, 0.14));
 }
 
 .hero-panel .eyebrow {
