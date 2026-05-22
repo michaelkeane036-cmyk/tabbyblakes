@@ -19,6 +19,9 @@
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.getElementById("lightbox-close");
     const lightboxTriggers = document.querySelectorAll("[data-lightbox-src]");
+    const siteHeader = document.querySelector(".site-header");
+    const menuToggle = document.querySelector(".menu-toggle");
+    const siteMenu = document.getElementById("primary-menu");
     let activeLightboxTrigger = null;
     let previousBodyOverflow = "";
 
@@ -156,6 +159,25 @@
         closeLightbox();
     });
 
+    function setMenuOpen(isOpen) {
+        if (!siteHeader || !menuToggle || !siteMenu) return;
+        siteHeader.classList.toggle("menu-open", isOpen);
+        menuToggle.setAttribute("aria-expanded", String(isOpen));
+        menuToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+    }
+
+    if (menuToggle && siteHeader && siteMenu) {
+        menuToggle.addEventListener("click", () => {
+            setMenuOpen(!siteHeader.classList.contains("menu-open"));
+        });
+
+        document.addEventListener("click", (event) => {
+            if (!siteHeader.classList.contains("menu-open")) return;
+            if (siteHeader.contains(event.target)) return;
+            setMenuOpen(false);
+        });
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach((link) => {
         link.addEventListener("click", (event) => {
             const href = link.getAttribute("href");
@@ -175,6 +197,7 @@
                 behavior: prefersReducedMotion ? "auto" : "smooth",
                 block: "start"
             });
+            setMenuOpen(false);
         });
     });
 })();
