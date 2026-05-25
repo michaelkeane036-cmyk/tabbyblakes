@@ -15,6 +15,7 @@
     const fanForm = document.getElementById("fan-form");
     const lightbox = document.getElementById("showcase-lightbox");
     const lightboxMedia = document.getElementById("lightbox-media");
+    const lightboxVideo = document.getElementById("lightbox-video");
     const lightboxTitle = document.getElementById("lightbox-title");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.getElementById("lightbox-close");
@@ -102,18 +103,42 @@
         });
     }
 
+    function resetLightboxVideo() {
+        if (!lightboxVideo) return;
+
+        lightboxVideo.pause();
+        lightboxVideo.removeAttribute("src");
+        lightboxVideo.removeAttribute("poster");
+        lightboxVideo.load();
+        lightboxVideo.hidden = true;
+    }
+
     function openLightbox(trigger) {
-        if (!lightbox || !lightboxMedia || !lightboxTitle || !lightboxCaption) return;
+        if (!lightbox || !lightboxMedia || !lightboxVideo || !lightboxTitle || !lightboxCaption) return;
 
         const src = trigger.dataset.lightboxSrc;
         const title = trigger.dataset.lightboxTitle || "Preview";
         const caption = trigger.dataset.lightboxCaption || "";
         const alt = trigger.querySelector("img")?.alt || title;
+        const isVideo = trigger.dataset.lightboxType === "video";
 
         activeLightboxTrigger = trigger;
         previousBodyOverflow = document.body.style.overflow;
-        lightboxMedia.src = src;
-        lightboxMedia.alt = alt;
+
+        if (isVideo) {
+            lightboxMedia.src = "";
+            lightboxMedia.alt = "";
+            lightboxMedia.hidden = true;
+            lightboxVideo.poster = trigger.querySelector("img")?.getAttribute("src") || "";
+            lightboxVideo.src = src;
+            lightboxVideo.hidden = false;
+        } else {
+            resetLightboxVideo();
+            lightboxMedia.hidden = false;
+            lightboxMedia.src = src;
+            lightboxMedia.alt = alt;
+        }
+
         lightboxTitle.textContent = title;
         lightboxCaption.textContent = caption;
         lightbox.classList.add("open");
@@ -127,6 +152,8 @@
 
         lightbox.classList.remove("open");
         lightbox.setAttribute("aria-hidden", "true");
+        resetLightboxVideo();
+        lightboxMedia.hidden = false;
         lightboxMedia.src = "";
         lightboxMedia.alt = "";
         document.body.style.overflow = previousBodyOverflow;
