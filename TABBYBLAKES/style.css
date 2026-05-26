@@ -4,18 +4,11 @@
    ======================================================= */
 
 :root {
-    --ink-950: #080808;
-    --ink-900: #151515;
     --hot-red: #d71920;
-    --violet: #d71920;
     --bone: #080808;
     --bone-soft: #202020;
     --bone-muted: rgba(8, 8, 8, 0.68);
     --gold: #d71920;
-    --page-bg: #ffffff;
-    --surface: #f5f5f5;
-    --surface-soft: #ffffff;
-    --cream: #ffffff;
     --line: rgba(8, 8, 8, 0.12);
     --ash-hover: rgba(215, 25, 32, 0.07);
     --ash-border: rgba(8, 8, 8, 0.18);
@@ -388,7 +381,6 @@ textarea {
     margin: 18px auto 0;
     padding-bottom: 42px;
     overflow-x: hidden;
-    counter-reset: sectionStep;
 }
 
 .hero-panel,
@@ -411,44 +403,6 @@ textarea {
     backdrop-filter: none;
     box-shadow: none;
     overflow: hidden;
-}
-
-.hero-panel::before {
-    content: none;
-}
-
-.hero-panel::after {
-    content: none;
-}
-
-.section-panel::before {
-    content: none;
-}
-
-.section-panel::after {
-    content: attr(data-marquee);
-    position: absolute;
-    left: -2%;
-    top: 12px;
-    z-index: 0;
-    width: max-content;
-    max-width: none;
-    color: rgba(8, 8, 8, 0.045);
-    font-family: var(--f-display);
-    font-size: 5.6rem;
-    line-height: 0.85;
-    text-transform: uppercase;
-    white-space: nowrap;
-    pointer-events: none;
-    opacity: 0.52;
-    animation: marqueeDrift 16s ease-in-out infinite;
-}
-
-.section-panel:nth-of-type(even)::after {
-    top: auto;
-    bottom: 12px;
-    color: rgba(215, 25, 32, 0.055);
-    animation-direction: reverse;
 }
 
 .hero-panel {
@@ -541,7 +495,6 @@ textarea {
     text-shadow: none;
 }
 
-.panel-intro,
 .lightbox-caption {
     color: var(--bone-muted);
     line-height: 1.9;
@@ -672,7 +625,6 @@ textarea {
 .section-panel {
     margin-top: 22px;
     padding: 38px;
-    counter-increment: sectionStep;
 }
 
 #shows,
@@ -681,16 +633,8 @@ textarea {
     color: #ffffff;
 }
 
-#shows::after,
-#contact::after {
-    color: rgba(255, 255, 255, 0.055);
-    opacity: 0.42;
-}
-
 #shows .panel-title,
-#shows .panel-intro,
 #contact .panel-title,
-#contact .panel-intro,
 #contact .contact-item {
     color: #ffffff;
 }
@@ -743,13 +687,6 @@ textarea {
     max-width: 860px;
     padding-top: 18px;
     border-top: 1px solid rgba(8, 8, 8, 0.12);
-}
-
-.panel-intro {
-    max-width: 620px;
-    margin: 18px 0 0;
-    font-size: 1rem;
-    line-height: 1.75;
 }
 
 .release-listen-layout {
@@ -832,14 +769,6 @@ textarea {
     text-shadow: 0 5px 0 rgba(0, 0, 0, 0.18), 0 0 34px rgba(215, 25, 32, 0.16);
 }
 
-.featured-release-copy p {
-    max-width: 390px;
-    margin: 18px 0 0;
-    color: rgba(8, 8, 8, 0.72);
-    font-size: 0.98rem;
-    line-height: 1.8;
-}
-
 .release-cta {
     display: inline-flex;
     align-items: center;
@@ -907,22 +836,13 @@ textarea {
     transition: transform 0.32s ease, color 0.32s ease, box-shadow 0.32s ease;
 }
 
-.platform-link em,
 .platform-link strong {
     display: block;
     font-style: normal;
     text-transform: uppercase;
 }
 
-.platform-link em {
-    color: rgba(215, 25, 32, 0.9);
-    font-family: var(--f-nav);
-    font-size: 0.88rem;
-    font-weight: 900;
-}
-
 .platform-link strong {
-    margin-top: 4px;
     color: var(--bone);
     font-family: var(--f-nav);
     font-size: 1.25rem;
@@ -949,10 +869,6 @@ textarea {
     color: #ffffff;
     box-shadow: 0 0 24px rgba(215, 25, 32, 0.14);
     transform: scale(1.1) rotate(-6deg);
-}
-
-.show-section::after {
-    color: rgba(215, 25, 32, 0.052);
 }
 
 .show-layout {
@@ -1101,27 +1017,6 @@ textarea {
     transform: scale(1.1) rotate(-5deg);
 }
 
-.show-chip-row {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 24px;
-}
-
-.show-chip-row span {
-    display: inline-flex;
-    align-items: center;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(8, 8, 8, 0.09);
-    color: rgba(8, 8, 8, 0.76);
-    background: rgba(255, 255, 255, 0.035);
-    font-family: var(--f-nav);
-    font-size: 0.9rem;
-    font-weight: 900;
-    text-transform: uppercase;
-}
-
 .show-cta {
     position: relative;
     isolation: isolate;
@@ -1229,6 +1124,9 @@ textarea {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    padding: 0;
+    color: inherit;
+    text-align: left;
     transition: transform 0.34s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
 }
 
@@ -1246,37 +1144,6 @@ textarea {
     transition: transform 0.62s ease, filter 0.62s ease;
 }
 
-.media-feature::after,
-.media-tile::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background:
-        linear-gradient(180deg, transparent 42%, rgba(5, 4, 4, 0.76) 100%),
-        linear-gradient(90deg, rgba(215, 25, 32, 0.08), transparent 62%);
-    pointer-events: none;
-}
-
-.media-feature-copy {
-    position: absolute;
-    left: 26px;
-    right: 26px;
-    bottom: 26px;
-    z-index: 1;
-}
-
-.media-feature-copy h3 {
-    max-width: 520px;
-    margin: 0;
-    color: var(--bone);
-    font-family: var(--f-display);
-    font-size: clamp(3.6rem, 6vw, 5.4rem);
-    font-weight: 400;
-    line-height: 0.92;
-    text-transform: uppercase;
-    text-shadow: 0 5px 0 rgba(0, 0, 0, 0.18), 0 0 34px rgba(215, 25, 32, 0.14);
-}
-
 .media-stack {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1292,20 +1159,6 @@ textarea {
 .media-tile-wide {
     grid-column: span 2;
     min-height: 270px;
-}
-
-.media-tile span {
-    position: absolute;
-    left: 18px;
-    right: 18px;
-    bottom: 18px;
-    z-index: 1;
-    color: var(--bone);
-    font-family: var(--f-nav);
-    font-size: 1.18rem;
-    font-weight: 900;
-    line-height: 1.15;
-    text-transform: uppercase;
 }
 
 .media-feature:hover,
@@ -1331,15 +1184,6 @@ textarea {
     display: flex;
     flex-direction: column;
     justify-content: center;
-}
-
-.media-kit-panel h3 {
-    margin: 0 0 8px;
-    color: var(--bone);
-    font-family: var(--f-nav);
-    font-size: 1.7rem;
-    font-weight: 900;
-    text-transform: uppercase;
 }
 
 .media-action-row {
@@ -1391,10 +1235,6 @@ textarea {
         linear-gradient(90deg, rgba(215, 25, 32, 0.1), transparent 24%);
 }
 
-.after-hours-archive::after {
-    color: rgba(255, 255, 255, 0.035);
-}
-
 .after-hours-archive .panel-label,
 .archive-index {
     color: var(--hot-red);
@@ -1402,14 +1242,6 @@ textarea {
 
 .after-hours-archive .panel-title {
     color: #ffffff;
-}
-
-.archive-intro {
-    max-width: 540px;
-    margin: 20px 0 0;
-    color: rgba(247, 244, 238, 0.62);
-    font-size: clamp(1rem, 1.4vw, 1.12rem);
-    line-height: 1.7;
 }
 
 .archive-chapter-head {
@@ -1438,13 +1270,6 @@ textarea {
     text-transform: uppercase;
 }
 
-.archive-chapter-head p {
-    max-width: 470px;
-    margin: 0;
-    color: rgba(247, 244, 238, 0.56);
-    line-height: 1.65;
-}
-
 .archive-level2-grid {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1458,6 +1283,9 @@ textarea {
     position: relative;
     overflow: hidden;
     cursor: pointer;
+    padding: 0;
+    color: inherit;
+    text-align: left;
     border: 1px solid rgba(255, 255, 255, 0.12);
     background: #0a0b10;
     transition: transform 0.36s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.28s ease, box-shadow 0.28s ease;
@@ -1502,7 +1330,6 @@ textarea {
     z-index: 1;
     display: flex;
     flex-direction: column;
-    gap: 4px;
     transform: translateY(6px);
     transition: transform 0.3s ease;
 }
@@ -1514,15 +1341,6 @@ textarea {
     font-size: 0.9rem;
     font-weight: 900;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
-}
-
-.archive-frame-copy em {
-    color: #ffffff;
-    font-family: var(--f-nav);
-    font-size: 1.28rem;
-    font-style: normal;
-    font-weight: 800;
     text-transform: uppercase;
 }
 
@@ -1693,6 +1511,9 @@ textarea {
     overflow: hidden;
     background: #f5f5f5;
     cursor: pointer;
+    width: 100%;
+    padding: 0;
+    color: inherit;
 }
 
 .merch-image img {
@@ -2043,15 +1864,6 @@ textarea {
     gap: 4px;
 }
 
-.mobile-bookbar-copy span {
-    color: rgba(8, 8, 8, 0.42);
-    font-family: var(--f-nav);
-    font-size: 0.86rem;
-    font-weight: 900;
-    letter-spacing: 0;
-    text-transform: uppercase;
-}
-
 .mobile-bookbar-copy strong {
     color: var(--bone);
     font-family: var(--f-nav);
@@ -2096,17 +1908,6 @@ textarea {
 @keyframes navSpin {
     to {
         transform: rotate(360deg);
-    }
-}
-
-@keyframes marqueeDrift {
-    0%,
-    100% {
-        transform: translateX(0);
-    }
-
-    50% {
-        transform: translateX(22px);
     }
 }
 
@@ -2209,10 +2010,6 @@ textarea {
         min-height: calc(100svh - 150px);
         padding: 42px;
         background: var(--hero-image) 52% 14% / cover no-repeat;
-    }
-
-    .section-panel::after {
-        font-size: 4.4rem;
     }
 
     .release-listen-layout,
@@ -2368,16 +2165,6 @@ textarea {
         min-height: 440px;
     }
 
-    .media-feature-copy {
-        left: 20px;
-        right: 20px;
-        bottom: 20px;
-    }
-
-    .media-feature-copy h3 {
-        font-size: clamp(2.8rem, 12vw, 4rem);
-    }
-
     .media-tile,
     .media-tile-wide,
     .media-kit-panel {
@@ -2513,10 +2300,6 @@ textarea {
         font-size: 2.2rem;
     }
 
-    .section-panel::after {
-        font-size: 3.1rem;
-    }
-
     .header-actions {
         width: 100%;
         justify-content: center;
@@ -2580,8 +2363,7 @@ textarea {
     .fade-in-up,
     .fade-in-left,
     .fade-in-right,
-    .mail-trigger::before,
-    .section-panel::after {
+    .mail-trigger::before {
         animation: none;
         transition: none;
         transform: none;

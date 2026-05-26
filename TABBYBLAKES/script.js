@@ -126,7 +126,7 @@
         previousBodyOverflow = document.body.style.overflow;
 
         if (isVideo) {
-            lightboxMedia.src = "";
+            lightboxMedia.removeAttribute("src");
             lightboxMedia.alt = "";
             lightboxMedia.hidden = true;
             lightboxVideo.poster = trigger.querySelector("img")?.getAttribute("src") || "";
@@ -154,7 +154,7 @@
         lightbox.setAttribute("aria-hidden", "true");
         resetLightboxVideo();
         lightboxMedia.hidden = false;
-        lightboxMedia.src = "";
+        lightboxMedia.removeAttribute("src");
         lightboxMedia.alt = "";
         document.body.style.overflow = previousBodyOverflow;
         activeLightboxTrigger?.focus();
@@ -163,11 +163,6 @@
 
     lightboxTriggers.forEach((trigger) => {
         trigger.addEventListener("click", () => openLightbox(trigger));
-        trigger.addEventListener("keydown", (event) => {
-            if (event.key !== "Enter" && event.key !== " ") return;
-            event.preventDefault();
-            openLightbox(trigger);
-        });
     });
 
     if (lightboxClose) {
