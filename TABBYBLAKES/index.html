@@ -16,7 +16,7 @@
     <meta name="twitter:description" content="Music, visuals, merch, and booking for Tabbyblakes.">
     <meta name="twitter:image" content="IMG_3175.PNG">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="style.css?v=20260526-clean">
+    <link rel="stylesheet" href="style.css?v=20260528-gallery">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -145,7 +145,7 @@
                             <strong>YouTube</strong>
                         </span>
                     </a>
-                    <a href="https://ffm.to/tabbyblakes-sacramento" class="platform-link platform-link-primary" target="_blank" rel="noopener noreferrer" aria-label="Open universal Sacramento music link">
+                    <a href="https://ffm.to/tabbyblakes-sacramento" class="platform-link" target="_blank" rel="noopener noreferrer" aria-label="Open universal Sacramento music link">
                         <span class="platform-icon"><svg width="18" height="18"><use href="#ico-arrow"/></svg></span>
                         <span>
                             <strong>Sacramento</strong>
@@ -223,7 +223,7 @@
                         <div class="media-action-row">
                             <a href="#gallery" class="text-action">
                                 <svg width="15" height="15"><use href="#ico-star"/></svg>
-                                Open Gallery
+                                View Gallery
                             </a>
                         </div>
                     </aside>
@@ -235,9 +235,12 @@
             <div class="gallery-copy fade-in-left">
                 <p class="panel-label">Archive</p>
                 <h2 class="panel-title">After Hours Archive.</h2>
+                <button class="gallery-toggle" type="button" id="gallery-toggle" aria-expanded="false" aria-controls="gallery-archive-panel">
+                    <span>View Gallery</span>
+                </button>
             </div>
 
-            <div class="gallery-content">
+            <div class="gallery-content gallery-reveal-panel" id="gallery-archive-panel" hidden>
                 <div>
                     <div class="archive-chapter-head fade-in-up">
                         <span class="archive-index">01 / Level 2</span>
@@ -488,7 +491,7 @@
         <a href="#contact" class="mobile-bookbar-link">Book Tabby</a>
     </div>
 
-    <script src="script.js?v=20260526-clean"></script>
+    <script src="script.js?v=20260528-gallery"></script>
 </body>
 </html>
 

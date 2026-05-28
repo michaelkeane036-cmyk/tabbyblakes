@@ -20,11 +20,15 @@
     const lightboxCaption = document.getElementById("lightbox-caption");
     const lightboxClose = document.getElementById("lightbox-close");
     const lightboxTriggers = document.querySelectorAll("[data-lightbox-src]");
+    const gallerySection = document.getElementById("gallery");
+    const galleryToggle = document.getElementById("gallery-toggle");
+    const galleryPanel = document.getElementById("gallery-archive-panel");
     const siteHeader = document.querySelector(".site-header");
     const menuToggle = document.querySelector(".menu-toggle");
     const siteMenu = document.getElementById("primary-menu");
     let activeLightboxTrigger = null;
     let previousBodyOverflow = "";
+    let galleryCloseTimer = null;
 
     if (!("IntersectionObserver" in window)) {
         revealEls.forEach((el) => el.classList.add("visible"));
@@ -54,6 +58,48 @@
         }, { threshold: 0.42 });
 
         sections.forEach((section) => sectionObserver.observe(section));
+    }
+
+    function setGalleryOpen(isOpen, shouldReturnFocus = false) {
+        if (!gallerySection || !galleryToggle || !galleryPanel) return;
+
+        clearTimeout(galleryCloseTimer);
+        galleryToggle.setAttribute("aria-expanded", String(isOpen));
+        galleryToggle.querySelector("span").textContent = isOpen ? "Close Gallery" : "View Gallery";
+
+        if (isOpen) {
+            galleryPanel.hidden = false;
+            galleryPanel.querySelectorAll(".fade-in-up, .fade-in-left, .fade-in-right").forEach((el) => {
+                el.classList.add("visible");
+            });
+
+            requestAnimationFrame(() => {
+                gallerySection.classList.add("gallery-open");
+            });
+            return;
+        }
+
+        gallerySection.classList.remove("gallery-open");
+
+        if (prefersReducedMotion) {
+            galleryPanel.hidden = true;
+        } else {
+            galleryCloseTimer = setTimeout(() => {
+                if (!gallerySection.classList.contains("gallery-open")) {
+                    galleryPanel.hidden = true;
+                }
+            }, 780);
+        }
+
+        if (shouldReturnFocus) {
+            galleryToggle.focus();
+        }
+    }
+
+    if (galleryToggle && gallerySection && galleryPanel) {
+        galleryToggle.addEventListener("click", () => {
+            setGalleryOpen(!gallerySection.classList.contains("gallery-open"), true);
+        });
     }
 
     function flashFormSuccess(targetForm, buttonSelector, labelSelector, idleText, successText) {

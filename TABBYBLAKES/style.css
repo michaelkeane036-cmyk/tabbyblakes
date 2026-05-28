@@ -458,22 +458,6 @@ textarea {
     text-transform: uppercase;
 }
 
-.section-panel .panel-label::before {
-    content: "0" counter(sectionStep);
-    min-width: 34px;
-    height: 28px;
-    padding: 0 8px;
-    border: 1px solid currentColor;
-    border-radius: 999px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--hot-red);
-    font-family: var(--f-nav);
-    font-size: 0.76rem;
-    line-height: 1;
-}
-
 .hero-title,
 .panel-title {
     margin: 0;
@@ -587,8 +571,7 @@ textarea {
     opacity: 0.78;
 }
 
-.hero-socials a,
-.contact-item svg {
+.hero-socials a {
     color: var(--bone-soft);
 }
 
@@ -639,10 +622,16 @@ textarea {
     color: #ffffff;
 }
 
-#shows .panel-label,
-#contact .panel-label,
-#contact .contact-item svg {
+#shows .panel-label {
     color: var(--hot-red);
+}
+
+#contact .panel-label {
+    color: rgba(255, 255, 255, 0.72);
+}
+
+#contact .panel-title::after {
+    background: rgba(255, 255, 255, 0.28);
 }
 
 #shows .panel-head,
@@ -722,7 +711,9 @@ textarea {
     background:
         radial-gradient(circle at 28% 18%, rgba(215, 25, 32, 0.08), transparent 28%),
         linear-gradient(120deg, transparent 0 46%, rgba(215, 25, 32, 0.08));
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.32s ease;
 }
 
 .featured-release-art {
@@ -766,7 +757,7 @@ textarea {
     font-weight: 400;
     line-height: 0.92;
     text-transform: uppercase;
-    text-shadow: 0 5px 0 rgba(0, 0, 0, 0.18), 0 0 34px rgba(215, 25, 32, 0.16);
+    text-shadow: 0 5px 0 rgba(0, 0, 0, 0.18);
 }
 
 .release-cta {
@@ -782,28 +773,41 @@ textarea {
     font-weight: 900;
     text-transform: uppercase;
     background: #080808;
-    box-shadow: 0 18px 34px rgba(215, 25, 32, 0.18), 0 14px 34px rgba(215, 25, 32, 0.14);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.14);
 }
 
 .release-cta svg {
     transition: transform 0.32s ease;
 }
 
-.featured-release:hover {
-    border-color: var(--ash-border);
+.featured-release:hover,
+.featured-release:focus-visible {
+    border-color: rgba(215, 25, 32, 0.28);
     background:
         linear-gradient(180deg, var(--ash-hover), rgba(245, 245, 245, 0.96)),
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.96));
-    box-shadow: 0 24px 52px rgba(255, 255, 255, 0), inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    box-shadow: 0 24px 52px rgba(215, 25, 32, 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.04);
     transform: translateY(-4px);
 }
 
-.featured-release:hover .featured-release-art img {
+.featured-release:hover::after,
+.featured-release:focus-visible::after {
+    opacity: 1;
+}
+
+.featured-release:hover .featured-release-art img,
+.featured-release:focus-visible .featured-release-art img {
     filter: saturate(1.04) contrast(1.08) brightness(0.94);
     transform: scale(1.04);
 }
 
-.featured-release:hover .release-cta svg {
+.featured-release:hover .release-cta,
+.featured-release:focus-visible .release-cta {
+    box-shadow: 0 18px 34px rgba(215, 25, 32, 0.18), 0 14px 34px rgba(215, 25, 32, 0.14);
+}
+
+.featured-release:hover .release-cta svg,
+.featured-release:focus-visible .release-cta svg {
     transform: translateX(4px);
 }
 
@@ -825,15 +829,15 @@ textarea {
 .platform-icon {
     width: 46px;
     height: 46px;
-    border: 1px solid rgba(215, 25, 32, 0.26);
+    border: 1px solid rgba(8, 8, 8, 0.18);
     border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    color: var(--gold);
-    background: rgba(215, 25, 32, 0.08);
+    color: var(--bone);
+    background: rgba(8, 8, 8, 0.045);
     flex-shrink: 0;
-    transition: transform 0.32s ease, color 0.32s ease, box-shadow 0.32s ease;
+    transition: transform 0.32s ease, color 0.32s ease, background 0.32s ease, border-color 0.32s ease, box-shadow 0.32s ease;
 }
 
 .platform-link strong {
@@ -849,24 +853,21 @@ textarea {
     line-height: 1.15;
 }
 
-.platform-link-primary {
-    border-color: rgba(215, 25, 32, 0.16);
-    background:
-        linear-gradient(135deg, rgba(215, 25, 32, 0.1), rgba(0, 0, 0, 0.04)),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.96));
-}
-
-.platform-link:hover {
-    border-color: var(--ash-border);
+.platform-link:hover,
+.platform-link:focus-visible {
+    border-color: rgba(215, 25, 32, 0.3);
     background:
         linear-gradient(180deg, var(--ash-hover), rgba(245, 245, 245, 0.96)),
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.96));
-    box-shadow: 0 16px 34px rgba(0, 0, 0, 0.18);
+    box-shadow: 0 16px 34px rgba(215, 25, 32, 0.13), 0 16px 34px rgba(0, 0, 0, 0.1);
     transform: translateY(-3px);
 }
 
-.platform-link:hover .platform-icon {
+.platform-link:hover .platform-icon,
+.platform-link:focus-visible .platform-icon {
     color: #ffffff;
+    border-color: var(--hot-red);
+    background: var(--hot-red);
     box-shadow: 0 0 24px rgba(215, 25, 32, 0.14);
     transform: scale(1.1) rotate(-6deg);
 }
@@ -1083,10 +1084,6 @@ textarea {
     border-radius: 24px;
 }
 
-.contact-item svg {
-    transition: transform 0.34s ease, filter 0.34s ease;
-}
-
 .merch-card h3,
 .lightbox-title {
     margin: 0 0 10px;
@@ -1212,10 +1209,40 @@ textarea {
     transform: translateX(3px);
 }
 
+.gallery-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    margin-top: 24px;
+    padding: 14px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.28);
+    border-radius: 999px;
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.06);
+    cursor: pointer;
+    font-family: var(--f-nav);
+    font-size: 0.98rem;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: background 0.28s ease, border-color 0.28s ease, color 0.28s ease, transform 0.28s ease, box-shadow 0.28s ease;
+}
+
+.gallery-toggle:hover,
+.gallery-toggle:focus-visible,
+.after-hours-archive.gallery-open .gallery-toggle {
+    border-color: var(--hot-red);
+    color: #ffffff;
+    background: rgba(215, 25, 32, 0.88);
+    box-shadow: 0 18px 36px rgba(215, 25, 32, 0.18);
+    transform: translateY(-2px);
+}
+
 .gallery-layout .gallery-content {
     display: grid;
     gap: 66px;
-    margin-top: 46px;
+    margin-top: 0;
 }
 
 .after-hours-archive {
@@ -1227,6 +1254,58 @@ textarea {
         linear-gradient(145deg, #11141c 0%, #080a0f 52%, #151820 100%);
     border-color: rgba(255, 255, 255, 0.08);
     overflow: hidden;
+}
+
+.gallery-reveal-panel {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    filter: blur(12px);
+    transform: translateY(-20px);
+    transition: max-height 0.78s cubic-bezier(0.22, 1, 0.36, 1), margin-top 0.38s ease, opacity 0.34s ease, filter 0.5s ease, transform 0.5s ease, visibility 0.34s ease;
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel {
+    max-height: 6200px;
+    margin-top: 46px;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+.gallery-reveal-panel > * {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(34px);
+    transition: opacity 0.58s ease, filter 0.58s ease, transform 0.58s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel > *,
+.after-hours-archive.gallery-open .gallery-reveal-panel .fade-in-up,
+.after-hours-archive.gallery-open .gallery-reveal-panel .fade-in-left,
+.after-hours-archive.gallery-open .gallery-reveal-panel .fade-in-right {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0);
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel > *:nth-child(1) {
+    transition-delay: 0.08s;
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel > *:nth-child(2) {
+    transition-delay: 0.16s;
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel > *:nth-child(3) {
+    transition-delay: 0.24s;
+}
+
+.after-hours-archive.gallery-open .gallery-reveal-panel > *:nth-child(4) {
+    transition-delay: 0.32s;
 }
 
 .after-hours-archive::before {
@@ -1494,10 +1573,25 @@ textarea {
 
 .merch-card-featured {
     justify-content: center;
-    border-color: rgba(215, 25, 32, 0.16);
+    border-color: rgba(8, 8, 8, 0.08);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.96));
+}
+
+.merch-card-featured .mini-kicker {
+    color: rgba(8, 8, 8, 0.56);
+}
+
+.merch-card-featured:hover,
+.merch-card-featured:focus-within {
+    border-color: rgba(215, 25, 32, 0.28);
     background:
-        linear-gradient(135deg, rgba(215, 25, 32, 0.12), transparent 42%),
+        linear-gradient(135deg, rgba(215, 25, 32, 0.08), transparent 46%),
         linear-gradient(180deg, rgba(255, 255, 255, 0.98), rgba(245, 245, 245, 0.96));
+}
+
+.merch-card-featured:hover .mini-kicker,
+.merch-card-featured:focus-within .mini-kicker {
+    color: var(--hot-red);
 }
 
 .merch-image {
@@ -1556,11 +1650,13 @@ textarea {
 }
 
 .contact-item svg {
-    color: var(--gold);
+    color: rgba(255, 255, 255, 0.72);
     flex-shrink: 0;
+    transition: color 0.28s ease, transform 0.34s ease, filter 0.34s ease;
 }
 
 .contact-item:hover svg {
+    color: var(--hot-red);
     filter: drop-shadow(0 0 8px rgba(215, 25, 32, 0.36));
     transform: scale(1.1) rotate(-5deg);
 }
@@ -1608,9 +1704,13 @@ textarea {
 }
 
 .fan-form input:focus,
+.fan-form input:hover,
 .form-group input:focus,
+.form-group input:hover,
 .form-group select:focus,
-.form-group textarea:focus {
+.form-group select:hover,
+.form-group textarea:focus,
+.form-group textarea:hover {
     border-color: rgba(215, 25, 32, 0.34);
     background: rgba(215, 25, 32, 0.05);
 }
@@ -1654,7 +1754,14 @@ textarea {
 .fan-btn {
     border: none;
     cursor: pointer;
-    box-shadow: 0 14px 28px rgba(215, 25, 32, 0.16);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.18);
+}
+
+.submit-btn:hover,
+.submit-btn:focus-visible,
+.fan-btn:hover,
+.fan-btn:focus-visible {
+    box-shadow: 0 18px 34px rgba(215, 25, 32, 0.18), 0 14px 34px rgba(215, 25, 32, 0.14);
 }
 
 .submit-btn {
@@ -2116,6 +2223,10 @@ textarea {
 
     .gallery-layout .gallery-content {
         gap: 46px;
+        margin-top: 0;
+    }
+
+    .after-hours-archive.gallery-open .gallery-reveal-panel {
         margin-top: 36px;
     }
 
@@ -2363,6 +2474,8 @@ textarea {
     .fade-in-up,
     .fade-in-left,
     .fade-in-right,
+    .gallery-reveal-panel,
+    .gallery-reveal-panel > *,
     .mail-trigger::before {
         animation: none;
         transition: none;
