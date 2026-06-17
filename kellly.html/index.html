@@ -1,0 +1,435 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Baltimore Afro-Food Festival | Celebrate &bull; Savor &bull; Connect</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=20260614-1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <audio id="backgroundMusic" src="Baltimore Afro food music.mp3" preload="auto" loop autoplay playsinline></audio>
+  <button class="sound-toggle" id="soundToggle" type="button" aria-label="Mute background music" aria-pressed="false">
+    <i class="fas fa-volume-up" aria-hidden="true"></i>
+  </button>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="#about" class="nav-logo">
+        <img src="baltimoreafro1.png" alt="baltimore-afro-logo" class="logo-img">
+        <span>BAFF</span>
+      </a>
+      <button class="mobile-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="navLinks" onclick="toggleMenu()">&#9776;</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#vendors">Vendors</a></li>
+        <li><a href="#details">Details</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#sponsors">Sponsors</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="#tickets">Tickets</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-slides" id="heroSlides" aria-hidden="true">
+      <div class="hero-slide hero-slide-original"><img src="https://images.pexels.com/photos/30050960/pexels-photo-30050960/free-photo-of-vibrant-traditional-african-drum-performance-outdoors.jpeg" alt=""></div>
+      <div class="hero-slide hero-slide-grill"><img src="afrobaltimore5.jpeg" alt=""></div>
+      <div class="hero-slide hero-slide-market"><img src="afrobaltimore3.jpeg" alt=""></div>
+      <div class="hero-slide hero-slide-vendor"><img src="afrobaltimore7.jpeg" alt=""></div>
+      <div class="hero-slide hero-slide-chef"><img src="afrobaltimore9.jpeg" alt=""></div>
+    </div>
+    <div class="container hero-content">
+      <h1>Baltimore Afro-Food Festival</h1>
+      <p>FOOD. MUSIC. CULTURE. HERITAGE</p>
+      <a href="#tickets" class="btn">Get Your Tickets Now</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section class="about" id="about">
+    <div class="container">
+      <h2 class="reveal">About the Festival</h2>
+      <div class="about-content reveal">
+        <div class="about-text">
+          <p>Baltimore Afro Food Festival 2026 is a one-day outdoor celebration of African and Afro-diaspora cuisine, music, and culture scheduled for Saturday, July 25, 2026, in Baltimore, Maryland.</p>
+          <p>The festival will highlight Black-owned restaurants, caterers, chefs, food trucks, and cultural vendors while offering families and young professionals a safe, vibrant Independence Day experience that centers African and Caribbean flavors.</p>
+        </div>
+        <div class="flags-container">
+          <div class="flag-item">
+            <img src="baltimoreafro1.png" alt="Baltimore Afro-Food Festival Logo">
+            <p>BAFF</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-md" role="img" aria-label="Maryland Flag"></span>
+            <p>Maryland</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-us" role="img" aria-label="USA Flag"></span>
+            <p>USA</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-ng" role="img" aria-label="Nigerian Flag"></span>
+            <p>Nigeria</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-gh" role="img" aria-label="Ghana Flag"></span>
+            <p>Ghana</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-za" role="img" aria-label="South African Flag"></span>
+            <p>South Africa</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-gb" role="img" aria-label="UK Flag"></span>
+            <p>UK</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-ca" role="img" aria-label="Canada Flag"></span>
+            <p>Canada</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-br" role="img" aria-label="Brazil Flag"></span>
+            <p>Brazil</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-mx" role="img" aria-label="Mexico Flag"></span>
+            <p>Mexico</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-cn" role="img" aria-label="China Flag"></span>
+            <p>China</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-qa" role="img" aria-label="Qatar Flag"></span>
+            <p>Qatar</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-ke" role="img" aria-label="Kenya Flag"></span>
+            <p>Kenya</p>
+          </div>
+          <div class="flag-item">
+            <span class="flag-icon flag-es" role="img" aria-label="Spain Flag"></span>
+            <p>Spain</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Save the Date image -->
+    <div class="save-the-date reveal">
+      <img src="baltimore19.jpg" alt="Afro Food Baltimore Festival 2026">
+    </div>
+
+    <!-- Countdown Timer -->
+    <div class="countdown-strip reveal">
+      <div class="cd-wrap">
+        <div class="cd-label">Counting down to<br>July 25, 2026</div>
+        <div class="cd-units">
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-d">--</span>
+            <span class="cd-unit-label">Days</span>
+          </div>
+          <div class="cd-colon">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-h">--</span>
+            <span class="cd-unit-label">Hours</span>
+          </div>
+          <div class="cd-colon">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-m">--</span>
+            <span class="cd-unit-label">Mins</span>
+          </div>
+          <div class="cd-colon">:</div>
+          <div class="cd-unit">
+            <span class="cd-num" id="cd-s">--</span>
+            <span class="cd-unit-label">Secs</span>
+          </div>
+        </div>
+      </div>
+      <div class="cd-kente"></div>
+    </div>
+
+  </section>
+
+  <!-- Featured Vendors -->
+  <section class="vendors" id="vendors">
+    <div class="container">
+      <h2 class="reveal">Featured Vendors & Chefs</h2>
+      <div class="vendor-grid reveal">
+        <div class="vendor-card">
+          <img src="https://thumbs.dreamstime.com/b/delicious-west-african-jollof-rice-fried-fish-salad-vibrant-platter-featuring-mound-seasoned-plantains-fresh-side-418724484.jpg" alt="Jollof & Plantains">
+          <h3>Jollof Heaven</h3>
+          <p>Authentic West African jollof with smoky twists</p>
+        </div>
+        <div class="vendor-card">
+          <img src="https://images.pexels.com/photos/20419328/pexels-photo-20419328.jpeg" alt="Grilled Specialties">
+          <h3>Suya Spot</h3>
+          <p>Spicy Nigerian street-style grilled meats</p>
+        </div>
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1604329760661-e71dc83f8f26?w=500" alt="Ethiopian Cuisine">
+          <h3>Addis Ethiopian</h3>
+          <p>Traditional injera and spicy wats</p>
+        </div>
+        <div class="vendor-card">
+          <img src="https://images.unsplash.com/photo-1546548970-71785318a17b?w=500" alt="Drinks">
+          <h3>Tropical Vibes Bar</h3>
+          <p>Refreshing African-inspired beverages</p>
+        </div>
+        <div class="vendor-card">
+          <img src="https://images.pexels.com/photos/33325368/pexels-photo-33325368.jpeg" alt="small chops">
+          <h3>Small Chops</h3>
+          <p>Crispy bites like puff-puff, samosas, and spring rolls</p>
+        </div>
+        <div class="vendor-card">
+          <img src="https://images.pexels.com/photos/9394514/pexels-photo-9394514.jpeg" alt="Goat Meat Pepper-Soup">
+          <h3>Pepper Soup</h3>
+          <p>Bold, aromatic pepper soup made with rich local spices</p>
+        </div>
+      </div>
+      <div class="vendor-application reveal">
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScfNeEIfojVYTN_9ay0wjkIeKy-ySrWa_1s0486KjQC79b9FQ/viewform?usp=send_form" class="btn" target="_blank" rel="noopener noreferrer">Apply as Vendor</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Details -->
+  <section class="details" id="details">
+    <div class="container">
+      <h2 class="reveal">Event Details</h2>
+      <div class="details-grid reveal">
+        <div class="detail-item">
+          <h3>Date</h3>
+          <p>July 25th, 2026</p>
+        </div>
+        <div class="detail-item">
+          <h3>Time</h3>
+          <p>10 AM &ndash; 6 PM</p>
+        </div>
+        <div class="detail-item">
+          <h3>Location</h3>
+          <p>Meadowood Regional Park. Timonium, Maryland.</p>
+        </div>
+      </div>
+      <p class="reveal" style="margin-top:3rem; font-size:1.3rem;">Expect mouthwatering food stalls, live Afrobeat & highlife music, cultural dance performances, drumming circles, chef demos, family zones, and a marketplace of African-inspired goods.</p>
+    </div>
+  </section>
+
+  <!-- Gallery -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <h2 class="reveal">Moments Made for the Spotlight</h2>
+      <p class="gallery-intro reveal">A closer look at the people, flavors, culture, and community energy behind the festival.</p>
+      <div class="gallery-carousel reveal" aria-label="Festival photo carousel">
+        <button class="gallery-arrow gallery-arrow-prev" type="button" aria-label="Show previous photo">&#8249;</button>
+        <div class="gallery-viewport">
+          <div class="gallery-track" id="galleryTrack">
+            <figure class="gallery-card">
+              <img src="afrobaltimore1.jpeg" alt="Opening moments at the Baltimore Afro-Food Festival">
+              <figcaption>Opening Moments</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore2.jpeg" alt="Festival crowd enjoying the Baltimore Afro-Food Festival">
+              <figcaption>Festival Crowd</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore3.jpeg" alt="Food stall setup at the Baltimore Afro-Food Festival">
+              <figcaption>Food Stall Energy</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore4.jpeg" alt="Community smiles during the Baltimore Afro-Food Festival">
+              <figcaption>Community Smiles</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore5.jpeg" alt="Grill and flavor moment at the Baltimore Afro-Food Festival">
+              <figcaption>Grill &amp; Flavor</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore6.jpeg" alt="Cultural moment at the Baltimore Afro-Food Festival">
+              <figcaption>Culture In Motion</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore7.jpeg" alt="Vendor spotlight at the Baltimore Afro-Food Festival">
+              <figcaption>Vendor Spotlight</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore8.jpeg" alt="Market finds at the Baltimore Afro-Food Festival">
+              <figcaption>Market Finds</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore9.jpeg" alt="Chef moment at the Baltimore Afro-Food Festival">
+              <figcaption>Chef Moments</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore10.jpeg" alt="Festival highlight from the Baltimore Afro-Food Festival">
+              <figcaption>Festival Highlights</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore11.jpeg" alt="Diaspora joy at the Baltimore Afro-Food Festival">
+              <figcaption>Diaspora Joy</figcaption>
+            </figure>
+            <figure class="gallery-card">
+              <img src="afrobaltimore12.jpeg" alt="Taste of Baltimore moment at the Afro-Food Festival">
+              <figcaption>Taste Of Baltimore</figcaption>
+            </figure>
+          </div>
+        </div>
+        <button class="gallery-arrow gallery-arrow-next" type="button" aria-label="Show next photo">&#8250;</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <h2 class="reveal">Get in Touch</h2>
+      <p class="reveal" style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">Have questions or want to share something with us? We'd love to hear from you!</p>
+      <form class="contact-form reveal" action="https://formspree.io/f/mjggybby" method="POST">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input type="email" id="email" name="_replyto" required>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <input type="text" id="subject" name="subject">
+        </div>
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <!-- Honeypot anti-spam -->
+        <input type="text" name="_gotcha" style="display:none">
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="tickets">
+    <div class="container">
+      <h2 class="reveal">Ready to Join the Flavor Revolution?</h2>
+      <div class="cta-buttons reveal">
+        <span class="btn btn-disabled" role="link" aria-disabled="true">Tickets Coming Soon</span>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLScfNeEIfojVYTN_9ay0wjkIeKy-ySrWa_1s0486KjQC79b9FQ/viewform?usp=send_form" class="btn" target="_blank" rel="noopener noreferrer">Apply as Vendor</a>
+        <span class="btn btn-disabled" role="link" aria-disabled="true">Newsletter Coming Soon</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sponsors -->
+  <section class="sponsors" id="sponsors">
+    <div class="container">
+      <h2 class="reveal">Our Sponsors</h2>
+      <p class="sponsor-intro reveal">Community partners supporting Baltimore Afro-Food Festival.</p>
+      <div class="sponsor-grid reveal">
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="68a1cf93-acf0-45ef-984c-9e5d803f4daa.jpg" alt="Sumptuous Cakes and Events sponsor logo"></div>
+          <p class="sponsor-name">Sumptuous Cakes and Events</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="276f27e7-8ae3-4697-9748-256ad97d4e49.jpg" alt="Bukky Couture custom tailoring sponsor flyer"></div>
+          <p class="sponsor-name">Bukky Couture</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="285de7fb-921c-404c-93fe-17e89f86b1d4.jpg" alt="Slymfit Concepts LLC sponsor logo"></div>
+          <p class="sponsor-name">Slymfit Concepts LLC</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="649cf175-de1f-4404-8572-53885025ae27.jpg" alt="Prestige Lux Property Group sponsor card"></div>
+          <p class="sponsor-name">Prestige Lux Property Group</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="4949af9a-df2b-4586-a098-28b29c85f015.jpg" alt="Belly Beauty Ventures sponsor logo"></div>
+          <p class="sponsor-name">Belly Beauty Ventures</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="15553c2b-d700-4b1e-b5ef-bda8dbe8ae36.jpg" alt="Beauty Plus Skin Treat sponsor logo"></div>
+          <p class="sponsor-name">Beauty Plus Skin Treat</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="754914f9-ee3d-4b86-914a-a244f1f9456b.jpg" alt="Tripple B Place LLC sponsor flyer"></div>
+          <p class="sponsor-name">Tripple B Place LLC</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="37746875-f7d8-4ed4-8c10-8c8592835313.jpg" alt="Bukola Fashion sponsor logo"></div>
+          <p class="sponsor-name">Bukola Fashion</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="bfc3c14e-fd5c-45fe-8af6-5414eca748cd.jpg" alt="OGC Gold Fashion sponsor logo"></div>
+          <p class="sponsor-name">OGC Gold Fashion</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="c99978db-1470-4140-83c1-49e55cd019cf.jpg" alt="A and M Foods LLC sponsor logo"></div>
+          <p class="sponsor-name">A and M Foods LLC</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="cd9d2ff2-b060-4d59-b930-92fb7b681c6e.jpg" alt="Apeke Alamala Specialities LLC sponsor logo"></div>
+          <p class="sponsor-name">Apeke Alamala Specialities LLC</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="e1898710-0688-4415-b170-2a2e82376732.jpg" alt="Adelicious Kitchen sponsor logo"></div>
+          <p class="sponsor-name">Adelicious Kitchen</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="ffb2eb97-e2d7-4005-a8b0-15789b5e8100.jpg" alt="BeautyPlus Jewelry sponsor logo"></div>
+          <p class="sponsor-name">BeautyPlus Jewelry</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="IMG_4805.PNG" alt="Gold Afrika sponsor logo"></div>
+          <p class="sponsor-name">Gold Afrika</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="IMG_4807.PNG" alt="Lily's Finger Chops sponsor flyer"></div>
+          <p class="sponsor-name">Lily's Finger Chops</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="8f4ca301-0171-4399-80ba-b9b61efc6c8a.jpg" alt="Flakky Enterprise sponsor flyer"></div>
+          <p class="sponsor-name">Flakky Enterprise</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="21b338a1-58c2-4fba-9965-59ab845e24c3.jpg" alt="SMB sponsor logo"></div>
+          <p class="sponsor-name">SMB</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="a6dd1dd6-5f7e-4fdd-9a18-61ceed31315b.jpg" alt="Tripple B Place LLC sponsor flyer"></div>
+          <p class="sponsor-name">Tripple B Place LLC</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="6efbd055-7739-40f0-8553-f01aaa8e414d.jpg" alt="Judith's Native Pot sponsor logo"></div>
+          <p class="sponsor-name">Judith's Native Pot</p>
+        </article>
+        <article class="sponsor-item">
+          <div class="sponsor-card"><img src="b30d6de4-937c-4a2b-8abf-974a62fb8810.jpg" alt="Handlick Catering Services sponsor logo"></div>
+          <p class="sponsor-name">Handlick Catering Services</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <h3>Baltimore Afro-Food Festival</h3>
+      <p>&copy; 2026 | Celebrating Diaspora Flavors in Charm City</p>
+      <div class="social">
+        <span class="social-placeholder" aria-label="Instagram coming soon"><i class="fab fa-instagram"></i></span>
+        <span class="social-placeholder" aria-label="Twitter coming soon"><i class="fab fa-twitter"></i></span>
+        <span class="social-placeholder" aria-label="Facebook coming soon"><i class="fab fa-facebook"></i></span>
+      </div>
+      <p style="margin-top:2rem;">Contact: info@baltimoreafrofoodfestival.com | (443) 224-8390, (443) 871-5224</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
