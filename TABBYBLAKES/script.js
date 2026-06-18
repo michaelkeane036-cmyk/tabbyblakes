@@ -126,13 +126,55 @@
     if (bookingForm) {
         bookingForm.addEventListener("submit", (event) => {
             event.preventDefault();
-            flashFormSuccess(
-                bookingForm,
-                ".submit-btn",
-                ".btn-label",
-                "Send the Message",
-                "Message Sent!"
-            );
+
+            if (!bookingForm.checkValidity()) {
+                bookingForm.reportValidity();
+                return;
+            }
+
+            const recipient = bookingForm.dataset.recipient || "Tabbyblakesbookings@gmail.com";
+            const button = bookingForm.querySelector(".submit-btn");
+            const label = bookingForm.querySelector(".btn-label");
+            const fields = {
+                name: document.getElementById("booking-name")?.value.trim() || "",
+                email: document.getElementById("booking-email")?.value.trim() || "",
+                eventType: document.getElementById("booking-type")?.value || "",
+                eventDate: document.getElementById("booking-date")?.value.trim() || "",
+                message: document.getElementById("booking-message")?.value.trim() || ""
+            };
+            const subject = `Booking inquiry from ${fields.name || "Tabbyblakes site"}`;
+            const body = [
+                "New booking inquiry from tabbyblakes.com",
+                "",
+                `Name: ${fields.name}`,
+                `Email: ${fields.email}`,
+                `Type of event: ${fields.eventType}`,
+                `Event date: ${fields.eventDate || "Not provided"}`,
+                "",
+                "Message:",
+                fields.message || "Not provided"
+            ].join("\n");
+            const mailtoUrl = `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            if (button) {
+                button.disabled = true;
+            }
+
+            if (label) {
+                label.textContent = "Opening Mail...";
+            }
+
+            window.location.href = mailtoUrl;
+
+            setTimeout(() => {
+                if (button) {
+                    button.disabled = false;
+                }
+
+                if (label) {
+                    label.textContent = "Send the Message";
+                }
+            }, 1200);
         });
     }
 

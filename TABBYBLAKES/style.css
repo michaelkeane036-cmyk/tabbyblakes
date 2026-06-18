@@ -850,6 +850,24 @@ textarea {
     line-height: 1.15;
 }
 
+.platform-link em {
+    display: block;
+    margin-bottom: 4px;
+    color: rgba(8, 8, 8, 0.5);
+    font-family: var(--f-nav);
+    font-size: 0.78rem;
+    font-style: normal;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    text-transform: uppercase;
+    transition: color 0.28s ease;
+}
+
+.track-link {
+    min-height: 112px;
+}
+
 .platform-link:hover,
 .platform-link:focus-visible {
     border-color: rgba(215, 25, 32, 0.3);
@@ -867,6 +885,11 @@ textarea {
     background: var(--hot-red);
     box-shadow: 0 0 24px rgba(215, 25, 32, 0.14);
     transform: scale(1.1) rotate(-6deg);
+}
+
+.platform-link:hover em,
+.platform-link:focus-visible em {
+    color: var(--hot-red);
 }
 
 .show-layout {
@@ -1669,6 +1692,14 @@ textarea {
 .submit-btn {
     width: 100%;
     margin-top: 14px;
+}
+
+.form-note {
+    margin: 12px 0 0;
+    color: rgba(255, 255, 255, 0.58);
+    font-family: var(--f-body);
+    font-size: 0.82rem;
+    line-height: 1.55;
 }
 
 .site-footer {

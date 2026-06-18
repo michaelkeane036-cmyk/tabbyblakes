@@ -3,3 +3,7 @@
 !index.html
 !TABBYBLAKES/
 !TABBYBLAKES/**
+!SLYMFIT/
+!SLYMFIT/**
+SLYMFIT/node_modules/
+SLYMFIT/.env

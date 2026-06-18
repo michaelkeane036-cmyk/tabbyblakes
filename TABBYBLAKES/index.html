@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabbyblakes | Fresh Yoruba Bad Boy</title>
     <meta name="description" content="Official Tabbyblakes site for music, visuals, merch, and booking.">
+    <link rel="canonical" href="https://tabbyblakes.com/">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="https://tabbyblakes.com/">
     <meta property="og:title" content="Tabbyblakes | Fresh Yoruba Bad Boy">
     <meta property="og:description" content="Music, visuals, merch, and booking for Tabbyblakes.">
-    <meta property="og:image" content="IMG_3175.PNG">
+    <meta property="og:image" content="https://tabbyblakes.com/social-preview.jpg">
+    <meta property="og:image:secure_url" content="https://tabbyblakes.com/social-preview.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="Black and white portrait of Tabbyblakes">
     <meta property="og:site_name" content="Tabbyblakes">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Tabbyblakes | Fresh Yoruba Bad Boy">
     <meta name="twitter:description" content="Music, visuals, merch, and booking for Tabbyblakes.">
-    <meta name="twitter:image" content="IMG_3175.PNG">
-    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <meta name="twitter:image" content="https://tabbyblakes.com/social-preview.jpg">
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="favicon.png">
     <link rel="stylesheet" href="style.css?v=20260528-archive">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -127,6 +134,13 @@
                 </a>
 
                 <div class="platform-grid fade-in-up" aria-label="Music platform links">
+                    <a href="https://ffm.to/tabbyblakes-anita" class="platform-link track-link" target="_blank" rel="noopener noreferrer" aria-label="Listen to Anita by Tabbyblakes">
+                        <span class="platform-icon"><svg width="18" height="18"><use href="#ico-music"/></svg></span>
+                        <span>
+                            <em>Featured Track</em>
+                            <strong>Anita</strong>
+                        </span>
+                    </a>
                     <a href="https://open.spotify.com/artist/40F7Irbyz7PtQq5jBqzTwW?si=wpuVYuO3R9-iugz6W2BMnA" class="platform-link" target="_blank" rel="noopener noreferrer" aria-label="Open Tabbyblakes on Spotify">
                         <span class="platform-icon"><svg width="18" height="18"><use href="#ico-spotify"/></svg></span>
                         <span>
@@ -355,12 +369,12 @@
 
                 <div class="contact-list">
                     <div class="contact-item"><svg width="15" height="15"><use href="#ico-pin"/></svg><span>Baltimore, Maryland, USA</span></div>
-                    <div class="contact-item"><svg width="15" height="15"><use href="#ico-mail"/></svg><span>booking@tabbyblakes.com</span></div>
+                    <div class="contact-item"><svg width="15" height="15"><use href="#ico-mail"/></svg><span>Tabbyblakesbookings@gmail.com</span></div>
                 </div>
 
                 <form class="fan-form" id="fan-form">
                     <label class="sr-only" for="fan-email">Email address</label>
-                    <input id="fan-email" type="email" placeholder="YOUR EMAIL FOR DROPS AND DATES" required>
+                    <input id="fan-email" type="email" name="email" placeholder="YOUR EMAIL FOR DROPS AND DATES" autocomplete="email" inputmode="email" required>
                     <button type="submit" class="fan-btn">
                         <span class="fan-btn-label">Join the Fan List</span>
                         <svg width="16" height="16"><use href="#ico-arrow"/></svg>
@@ -369,20 +383,20 @@
             </div>
 
             <div class="booking-panel fade-in-right">
-                <form class="booking-form" id="booking-form">
+                <form class="booking-form" id="booking-form" action="mailto:Tabbyblakesbookings@gmail.com" method="post" enctype="text/plain" data-recipient="Tabbyblakesbookings@gmail.com">
                     <div class="form-row">
                         <div class="form-group">
                             <label class="sr-only" for="booking-name">Your name</label>
-                            <input id="booking-name" type="text" placeholder="YOUR NAME" required>
+                            <input id="booking-name" name="name" type="text" placeholder="YOUR NAME" autocomplete="name" required>
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="booking-email">Your email</label>
-                            <input id="booking-email" type="email" placeholder="YOUR EMAIL" required>
+                            <input id="booking-email" name="email" type="email" placeholder="YOUR EMAIL" autocomplete="email" inputmode="email" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="booking-type">Type of event</label>
-                        <select id="booking-type" required>
+                        <select id="booking-type" name="eventType" required>
                             <option value="" disabled selected>TYPE OF EVENT</option>
                             <option>Artist Booking</option>
                             <option>Private Party</option>
@@ -394,16 +408,17 @@
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="booking-date">Event date</label>
-                        <input id="booking-date" type="text" placeholder="EVENT DATE">
+                        <input id="booking-date" name="eventDate" type="text" placeholder="EVENT DATE">
                     </div>
                     <div class="form-group">
                         <label class="sr-only" for="booking-message">Tell me about your event</label>
-                        <textarea id="booking-message" placeholder="TELL ME ABOUT YOUR EVENT..." rows="6"></textarea>
+                        <textarea id="booking-message" name="message" placeholder="TELL ME ABOUT YOUR EVENT..." rows="6"></textarea>
                     </div>
                     <button type="submit" class="submit-btn">
                         <span class="btn-label">Send the Message</span>
                         <svg width="18" height="18"><use href="#ico-arrow"/></svg>
                     </button>
+                    <p class="form-note">This opens your email app with the booking request already filled in.</p>
                 </form>
             </div>
         </section>
@@ -430,7 +445,7 @@
             <div class="footer-socials" aria-label="Social links">
                 <a href="https://open.spotify.com/artist/40F7Irbyz7PtQq5jBqzTwW?si=wpuVYuO3R9-iugz6W2BMnA" target="_blank" rel="noopener noreferrer" aria-label="Spotify"><svg width="16" height="16"><use href="#ico-spotify"/></svg></a>
                 <a href="https://youtube.com/@tabbyblakes?si=w1Apf0CGotg-PstD" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><svg width="16" height="16"><use href="#ico-youtube"/></svg></a>
-                <a href="mailto:booking@tabbyblakes.com" aria-label="Email booking"><svg width="16" height="16"><use href="#ico-mail"/></svg></a>
+                <a href="mailto:Tabbyblakesbookings@gmail.com" aria-label="Email booking"><svg width="16" height="16"><use href="#ico-mail"/></svg></a>
             </div>
         </div>
     </footer>
@@ -457,7 +472,7 @@
         <a href="#contact" class="mobile-bookbar-link">Book Tabby</a>
     </div>
 
-    <script src="script.js?v=20260528-archive"></script>
+    <script src="script.js?v=20260601-mail"></script>
 </body>
 </html>
 
