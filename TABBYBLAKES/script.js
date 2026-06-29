@@ -23,6 +23,8 @@
     const gallerySection = document.getElementById("gallery");
     const galleryToggle = document.getElementById("gallery-toggle");
     const galleryPanel = document.getElementById("gallery-archive-panel");
+    const releaseToggle = document.getElementById("oliver-twist-toggle");
+    const releasePlatforms = document.getElementById("oliver-twist-platforms");
     const siteHeader = document.querySelector(".site-header");
     const menuToggle = document.querySelector(".menu-toggle");
     const siteMenu = document.getElementById("primary-menu");
@@ -99,6 +101,29 @@
     if (galleryToggle && gallerySection && galleryPanel) {
         galleryToggle.addEventListener("click", () => {
             setGalleryOpen(!gallerySection.classList.contains("gallery-open"), true);
+        });
+    }
+
+    function setReleaseOpen(isOpen) {
+        if (!releaseToggle || !releasePlatforms) return;
+
+        const releaseCard = releaseToggle.closest(".featured-release");
+        const releaseLabel = releaseToggle.querySelector("span");
+
+        releaseToggle.setAttribute("aria-expanded", String(isOpen));
+        if (releaseLabel) {
+            releaseLabel.textContent = isOpen ? "Choose Platform" : "Listen to Oliver Twist";
+        }
+
+        releasePlatforms.hidden = !isOpen;
+        if (releaseCard) {
+            releaseCard.classList.toggle("release-open", isOpen);
+        }
+    }
+
+    if (releaseToggle && releasePlatforms) {
+        releaseToggle.addEventListener("click", () => {
+            setReleaseOpen(releaseToggle.getAttribute("aria-expanded") !== "true");
         });
     }
 

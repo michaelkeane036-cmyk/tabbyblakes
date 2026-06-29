@@ -23,7 +23,7 @@
     <meta name="twitter:image" content="https://tabbyblakes.com/social-preview.jpg">
     <link rel="icon" href="favicon.png" type="image/png">
     <link rel="apple-touch-icon" href="favicon.png">
-    <link rel="stylesheet" href="style.css?v=20260528-archive">
+    <link rel="stylesheet" href="style.css?v=20260629-oliver-twist">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo:wght@400;500;600;700;800;900&family=Barlow+Condensed:wght@600;700;800;900&display=swap" rel="stylesheet">
@@ -119,19 +119,24 @@
             </div>
 
             <div class="release-listen-layout">
-                <a href="https://ffm.to/tabbyblakes-sacramento" class="featured-release fade-in-up" target="_blank" rel="noopener noreferrer" aria-label="Listen to Sacramento by Tabbyblakes">
+                <article class="featured-release fade-in-up" aria-labelledby="oliver-twist-title">
                     <div class="featured-release-art">
-                        <img src="musicImage.jpeg" alt="Sacramento release artwork by Tabby Blakes">
+                        <img src="oliver-twist-cover.jpg" alt="Oliver Twist cover artwork by Tabbyblakes">
                     </div>
                     <div class="featured-release-copy">
-                        <span class="mini-kicker">Featured Release</span>
-                        <h3>Sacramento</h3>
-                        <span class="release-cta">
-                            Listen Now
+                        <span class="mini-kicker">New Release / Freestyle</span>
+                        <h3 id="oliver-twist-title">Oliver Twist</h3>
+                        <button class="release-cta release-toggle" id="oliver-twist-toggle" type="button" aria-expanded="false" aria-controls="oliver-twist-platforms">
+                            <span>Listen to Oliver Twist</span>
                             <svg width="17" height="17"><use href="#ico-arrow"/></svg>
-                        </span>
+                        </button>
+                        <div class="release-platforms" id="oliver-twist-platforms" hidden>
+                            <a href="https://on.soundcloud.com/71RiSopziIVnUhGGfR" target="_blank" rel="noopener noreferrer">SoundCloud</a>
+                            <a href="https://audiomack.com/tabbyblakes/song/6a42cd58602cd" target="_blank" rel="noopener noreferrer">Audiomack</a>
+                            <a href="https://youtu.be/Gak0kpFjffU?si=GQHAtY_gdyz7USqM" target="_blank" rel="noopener noreferrer">YouTube</a>
+                        </div>
                     </div>
-                </a>
+                </article>
 
                 <div class="platform-grid fade-in-up" aria-label="Music platform links">
                     <a href="https://ffm.to/tabbyblakes-anita" class="platform-link track-link" target="_blank" rel="noopener noreferrer" aria-label="Listen to Anita by Tabbyblakes">
@@ -472,7 +477,7 @@
         <a href="#contact" class="mobile-bookbar-link">Book Tabby</a>
     </div>
 
-    <script src="script.js?v=20260601-mail"></script>
+    <script src="script.js?v=20260629-oliver-twist"></script>
 </body>
 </html>
 

@@ -701,10 +701,27 @@ textarea {
     align-items: stretch;
 }
 
+.featured-release::before {
+    content: "";
+    position: absolute;
+    inset: -18px;
+    z-index: 0;
+    background:
+        linear-gradient(90deg, rgba(255, 255, 255, 0.62), rgba(255, 255, 255, 0.84)),
+        linear-gradient(180deg, rgba(8, 8, 8, 0.12), rgba(8, 8, 8, 0.2)),
+        url("oliver-twist-cover.jpg") center / cover no-repeat;
+    filter: blur(16px) saturate(1.05) contrast(1.04);
+    opacity: 0;
+    transform: scale(1.06);
+    pointer-events: none;
+    transition: opacity 0.36s ease, transform 0.52s ease;
+}
+
 .featured-release::after {
     content: "";
     position: absolute;
     inset: 0;
+    z-index: 1;
     background:
         radial-gradient(circle at 28% 18%, rgba(215, 25, 32, 0.08), transparent 28%),
         linear-gradient(120deg, transparent 0 46%, rgba(215, 25, 32, 0.08));
@@ -715,6 +732,7 @@ textarea {
 
 .featured-release-art {
     position: relative;
+    z-index: 2;
     min-height: 100%;
     overflow: hidden;
 }
@@ -738,7 +756,7 @@ textarea {
 
 .featured-release-copy {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -773,12 +791,60 @@ textarea {
     box-shadow: 0 18px 34px rgba(0, 0, 0, 0.14);
 }
 
+.release-toggle {
+    border: 0;
+    cursor: pointer;
+}
+
 .release-cta svg {
     transition: transform 0.32s ease;
 }
 
+.release-platforms {
+    display: grid;
+    width: min(100%, 420px);
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 9px;
+    margin-top: 14px;
+    opacity: 0;
+    transform: translateY(-8px);
+    transition: opacity 0.24s ease, transform 0.24s ease;
+}
+
+.release-platforms:not([hidden]) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.release-platforms a {
+    display: inline-flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(8, 8, 8, 0.16);
+    border-radius: 999px;
+    color: var(--bone);
+    background: rgba(255, 255, 255, 0.84);
+    font-family: var(--f-nav);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: transform 0.28s ease, border-color 0.28s ease, color 0.28s ease, box-shadow 0.28s ease;
+}
+
+.release-platforms a:hover,
+.release-platforms a:focus-visible {
+    border-color: rgba(215, 25, 32, 0.4);
+    color: var(--hot-red);
+    box-shadow: 0 12px 26px rgba(215, 25, 32, 0.12);
+    transform: translateY(-2px);
+}
+
 .featured-release:hover,
-.featured-release:focus-visible {
+.featured-release:focus-within,
+.featured-release.release-open {
     border-color: rgba(215, 25, 32, 0.28);
     background:
         linear-gradient(180deg, var(--ash-hover), rgba(245, 245, 245, 0.96)),
@@ -787,25 +853,48 @@ textarea {
     transform: translateY(-4px);
 }
 
+.featured-release:hover::before,
+.featured-release:focus-within::before,
+.featured-release.release-open::before {
+    opacity: 0.54;
+    transform: scale(1);
+}
+
 .featured-release:hover::after,
-.featured-release:focus-visible::after {
+.featured-release:focus-within::after,
+.featured-release.release-open::after {
     opacity: 1;
 }
 
 .featured-release:hover .featured-release-art img,
-.featured-release:focus-visible .featured-release-art img {
+.featured-release:focus-within .featured-release-art img,
+.featured-release.release-open .featured-release-art img {
     filter: saturate(1.04) contrast(1.08) brightness(0.94);
     transform: scale(1.04);
 }
 
 .featured-release:hover .release-cta,
-.featured-release:focus-visible .release-cta {
+.featured-release:focus-within .release-cta {
     box-shadow: 0 18px 34px rgba(215, 25, 32, 0.18), 0 14px 34px rgba(215, 25, 32, 0.14);
 }
 
 .featured-release:hover .release-cta svg,
-.featured-release:focus-visible .release-cta svg {
+.featured-release:focus-within .release-cta svg,
+.featured-release.release-open .release-cta svg {
     transform: translateX(4px);
+}
+
+@media (hover: none) {
+    .featured-release:hover::before {
+        opacity: 0;
+        transform: scale(1.06);
+    }
+
+    .featured-release:focus-within::before,
+    .featured-release.release-open::before {
+        opacity: 0.5;
+        transform: scale(1);
+    }
 }
 
 .platform-grid {
